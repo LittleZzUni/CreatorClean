@@ -1,8 +1,11 @@
 <div id="warp" class="warp">
     <header>
+      <div v-if='isDone == true'>
         <i class="fa fa-refresh" aria-hidden="true" title="刷新" @click="refresh"></i>
         <i class="fa fa-times-circle" aria-hidden="true" title="删除所有未使用资源" @click="onDeleteAllClick"></i>
         <i class="fa fa-picture-o"> {{items.length}} </i>
+      </div>
+      <div v-else>刷新中...</div>
     </header>
 
     <section class="res">
