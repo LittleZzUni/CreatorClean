@@ -80,6 +80,14 @@ var createVM = function (elem) {
                                 }
                             }
 
+                            if (result.jsonObj && result.jsonObj.content) {
+                                if (result.jsonObj.content.texture) {
+                                    if (json.indexOf(result.jsonObj.content.texture) > -1 && obj.type == 'spine') {
+                                        result.contain = true;
+                                    }
+                                }
+                            }
+
                             let isContain = json.indexOf(result.uuid) > -1;
                             result.contain = result.contain ? true :  isContain;
                         }
@@ -120,7 +128,7 @@ var createVM = function (elem) {
 
                 adb.queryAssets(
                     null,
-                    ['scene', 'prefab', 'animation-clip', 'bitmap-font'],
+                    ['scene', 'prefab', 'animation-clip', 'bitmap-font', 'sprite-atlas', 'texture-packer', 'spine'],
                     function (err, objs) {
                         adb.queryAssets(
                             null,
